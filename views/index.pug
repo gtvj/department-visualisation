@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= 'Department viewer'
+  p Visualisation for department #{department}
+
+block scripts
+  script(src='https://d3js.org/d3.v4.min.js')
+  script(src='/data/'+ department+'.js')
+  script(src='/javascripts/visualisation.js')
+  script(src='https://code.jquery.com/jquery-2.2.4.min.js')

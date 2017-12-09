@@ -3,6 +3,10 @@ extends layout
 block content
   h1= 'Department viewer'
   p Visualisation for department #{department}
+  ul(class='nav nav-pills', role='tablist')
+    each code in codes
+      li(role='presentation')
+        a(href='/department/'+code)= code
 
 block scripts
   script(src='https://d3js.org/d3.v4.min.js')

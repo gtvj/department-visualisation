@@ -33,9 +33,16 @@ var cell = svg.selectAll("g")
         return "translate(" + d.x0 + "," + d.y0 + ")";
     });
 
-cell.append("rect")
+cell.append("a")
+    .attr("target", "_blank")
+    .attr("xlink:href", function (d) {
+        var department = d.data.id.split('.')[1],
+            search_term = encodeURIComponent('"' + d.data.id.split('.')[3] + '"');
+        return "http://discovery.nationalarchives.gov.uk/results/r?_q=" + search_term + "&_hb=tna&_d=" + department
+    })
+    .append("rect")
     .attr("id", function (d) {
-        return d.data.id;
+        return d.data.id.split('.')[3];
     })
     .attr("width", function (d) {
         return d.x1 - d.x0;

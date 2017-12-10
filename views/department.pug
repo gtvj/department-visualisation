@@ -1,25 +1,32 @@
 extends layout
 
 block content
-    h1= 'Department viewer'
-    form(class='form-inline' id='selector')
-        div(class='form-group')
-            label(for='departments') Show me the important phrases for department
-            select(name='departments', class='form-control' id='departments')
-                each code in codes
-                    if code === department
-                        option(value=code,selected='selected')= code
-                    else
-                        option(value=code)= code
+    div(class='container')
+        div(class='row')
+            div(class='col-md-9')
+                h1= 'Department viewer'
+                form(class='form-inline' id='selector')
+                    div(class='form-group')
+                        label(for='departments') Show me the important phrases for department
+                        select(name='departments', class='form-control' id='departments')
+                            each code in codes
+                                if code === department
+                                    option(value=code,selected='selected')= code
+                                else
+                                    option(value=code)= code
+                svg(width='1000', height='700')
 
-    form(class='form-inline')
-        div(class='form-group')
-            span(class='phrase-control') Size phrases:
-            input(type='radio', name='mode', value='sumBySize' id='sumBySize' checked='checked')
-            label(for='sumBySize') by relative importance, as identified by&nbsp;
-                a(href='http://mallet.cs.umass.edu/', target='_blank') Mallet
-            input(type='radio', name='mode', value='sumByCount' id='sumByCount')
-            label(for='sumByCount') equally
+                form(class='form-inline')
+                    div(class='form-group')
+                        span(class='phrase-control') Size phrases:
+                        input(type='radio', name='mode', value='sumBySize' id='sumBySize' checked='checked')
+                        label(for='sumBySize') by relative importance, as identified by&nbsp;
+                            a(href='http://mallet.cs.umass.edu/', target='_blank') Mallet
+                        input(type='radio', name='mode', value='sumByCount' id='sumByCount')
+                        label(for='sumByCount') equally
+
+            div(class='col-md-3')
+                h2= 'Related research guides'
 
 block scripts
     script(src='https://d3js.org/d3.v4.min.js')

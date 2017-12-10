@@ -1,5 +1,5 @@
-body {
-    padding: 2em;
+.container {
+    width: 90%!important;
 }
 
 .form-inline {

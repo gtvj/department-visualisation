@@ -14,8 +14,12 @@ router.get('/', function (req, res) {
     res.render('index', { department: 'all_departments', codes: department_codes });
 });
 
+router.get('/department/', function (req, res) {
+    res.render('department', { department: 'all_departments', codes: department_codes });
+});
+
 router.get('/department/:id', function (req, res) {
-    res.render('index', { department: req.params.id, codes: department_codes });
+    res.render('department', { department: req.params.id, codes: department_codes });
 });
 
 module.exports = router;

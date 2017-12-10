@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 2em;
 }
 
-a {
-  color: #00B7FF;
+.form-inline {
+    margin-bottom: 1em;
+}
+
+.form-group label {
+    margin-right: 0.5em;
+ }
+
+.form-group input[type=radio] {
+    margin-right: 0.5em;
 }

@@ -3,13 +3,26 @@ extends layout
 block content
   h1= 'Department viewer'
   p Visualisation for department #{department}
-  ul(class='nav nav-pills', role='tablist')
-    each code in codes
-      li(role='presentation')
-        a(href='/department/'+code)= code
+  form(class='form-inline' id='selector')
+    div(class='form-group')
+      label(for='departments') Show me the important phrases for department
+      select(name='departments', class='form-control' id='departments')
+        each code in codes
+          if code === department
+            option(value=code,selected='selected')= code
+          else
+            option(value=code)= code
+
+  form(class='form-inline')
+    div(class='form-group')
+        input(type='radio', name='mode', value='sumBySize' id='sumBySize' checked='checked')
+        label(for='sumBySize') Sized by phrase importance
+        input(type='radio', name='mode', value='sumByCount' id='sumByCount')
+        label(for='sumByCount') Sized equally
 
 block scripts
   script(src='https://d3js.org/d3.v4.min.js')
   script(src='/data/'+ department+'.js')
   script(src='/javascripts/visualisation.js')
   script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+  script(src='/javascripts/navigation.js')

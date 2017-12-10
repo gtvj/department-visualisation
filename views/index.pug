@@ -15,10 +15,12 @@ block content
 
   form(class='form-inline')
     div(class='form-group')
+        span(class='phrase-control') Size phrases:
         input(type='radio', name='mode', value='sumBySize' id='sumBySize' checked='checked')
-        label(for='sumBySize') Sized by phrase importance
+        label(for='sumBySize') by relative importance, as identified by
+          a(href='http://mallet.cs.umass.edu/', target='_blank') Mallet
         input(type='radio', name='mode', value='sumByCount' id='sumByCount')
-        label(for='sumByCount') Sized equally
+        label(for='sumByCount') equally
 
 block scripts
   script(src='https://d3js.org/d3.v4.min.js')

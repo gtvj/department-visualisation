@@ -2,4 +2,28 @@
 
 ## Development machine set up
 
-Use `npm install && npm start` from project root to initiate a server running at `localhost:3000`
+On the server side, this project uses the Node.js Express web framework with Pug templates and MongoDB for data storage. On the client side D3 is used for data visualisation along with some very light-touch jQuery for event management. You'll need to install MongoDB with: 
+
+```bash
+brew install mongodb
+```
+
+Then install the NPM modules with
+
+```bash
+npm install
+```
+
+## Daily use
+
+Start MongoDB in one terminal session with:
+
+```bash
+mongod --config /usr/local/etc/mongod.conf
+```
+
+Then initiate a server running at http://localhost:3000 with 
+
+```bash
+npm start
+```

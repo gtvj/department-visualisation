@@ -10,15 +10,15 @@ fs.readdir("public/data", (err, files) => {
     department_codes = files.map((file) => file.replace('.js', ''));
 });
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
     res.render('index', { department: 'all_departments', codes: department_codes });
 });
 
-router.get('/department/', function (req, res) {
+router.get('/department/', (req, res) => {
     res.render('department', { department: 'all_departments', codes: department_codes });
 });
 
-router.get('/department/:id', function (req, res) {
+router.get('/department/:id', (req, res) => {
     res.render('department', { department: req.params.id, codes: department_codes });
 });
 

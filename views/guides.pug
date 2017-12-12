@@ -2,13 +2,18 @@ extends layout
 
 block content
     div(class='container')
+        h1= 'Guides viewer'
         div(class='row')
+            div(class='col-md-3')
+                ul(class='nav nav-pills nav-stacked')
+                    each guide in guides
+                        li
+                            a(href='#' + guide.name.toLowerCase().split(' ').join('-'))= guide.name
             div(class='col-md-9')
-                h1= 'Guides viewer'
                 each guide in guides
                     div(class='panel panel-default')
                         div(class='panel-heading')
-                            h2(class='panel-title')
+                            h2(class='panel-title', id=guide.name.toLowerCase().split(' ').join('-'))
                                 a(href=guide.guide_href)= guide.name
                         div(class='panel-body')
                             h3(class='lead') NLTK generated summary of this guide

@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1= 'Can machine learning provide a different view of collections?'
-    ul(class='nav nav-pills')
+    ul.nav.nav-pills
         each code in codes
             li(role='presentation')
                 a(href='/department/' + code)= code

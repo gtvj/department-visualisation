@@ -1,36 +1,36 @@
 extends layout
 
 block content
-    div(class='container')
+    div.container
         h1= 'Guides viewer'
-        div(class='row')
-            div(class='col-md-3')
-                ul(class='nav nav-pills nav-stacked')
+        div.row
+            div.col-md-3
+                ul.nav.nav-pills.nav-stacked
                     each guide in guides
                         li
                             a(href='#' + guide.name.toLowerCase().split(' ').join('-'))= guide.name
-            div(class='col-md-9')
+            div.col-md-9
                 each guide in guides
-                    div(class='panel panel-default')
-                        div(class='panel-heading')
-                            h2(class='panel-title', id=guide.name.toLowerCase().split(' ').join('-'))
+                    div.panel.panel-default
+                        div.panel-heading
+                            h2.panel-title(id=guide.name.toLowerCase().split(' ').join('-'))
                                 a(href=guide.guide_href)= guide.name
-                        div(class='panel-body')
-                            h3(class='lead') NLTK generated summary of this guide
+                        div.panel-body
+                            h3.lead NLTK generated summary of this guide
                             div= guide.summary
-                            h3(class='lead') References in this guide (identified by RegEx)
+                            h3.lead References in this guide (identified by RegEx)
                             div
                                 each reference in guide.references
                                     span= reference + ' '
-                            h3(class='lead') NLTK identified trigrams
+                            h3.lead NLTK identified trigrams
                             div
                                 each trigram in guide.trigrams
-                                    ul(class='list-group')
-                                        li(class='list-group-item')= trigram[0]
-                                            span(class='badge')= trigram[1]
-                            h3(class='lead') NLTK identified bigrams
+                                    ul.list-group
+                                        li.list-group-item= trigram[0]
+                                            span.badge= trigram[1]
+                            h3.lead NLTK identified bigrams
                             div
                                 each bigram in guide.bigrams
-                                    ul(class='list-group')
-                                        li(class='list-group-item')= bigram[0]
-                                            span(class='badge')= bigram[1]
+                                    ul.list-group
+                                        li.list-group-item= bigram[0]
+                                            span.badge= bigram[1]
